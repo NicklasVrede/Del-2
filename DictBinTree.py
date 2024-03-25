@@ -82,19 +82,3 @@ def orderedTraversal(T):
 
 def createEmptyDict():
     return DictBinTree()
-
-#Test
-T = createEmptyDict()
-insert(T, 5)
-print(f'T.rod = {T.rod.nøgle}') #Output: 5
-insert(T, 3)
-print(f'T.rod.venstre = {T.rod.venstre.nøgle}') #Output: 3
-insert(T, 7)
-print(f'T.rod.højre = {T.rod.højre.nøgle}') #Output: 7
-insert(T, 4)
-print(f'T.rod.venstre.højre = {T.rod.venstre.højre.nøgle}') #Output: 4
-
-print(f'search(T, 4) = {search(T, 4)}') #Output: True
-print(f'search(T, 6) = {search(T, 6)}') #Output: False
-
-print(f'orderedTraversal(T) = {orderedTraversal(T)}') #Output: [3, 4, 5, 7]
