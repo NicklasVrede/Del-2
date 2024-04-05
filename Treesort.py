@@ -1,12 +1,15 @@
 import DictBinTree as dbt
 import sys
 
-T = dbt.createEmptyDict()
+T = dbt.DictBinTree()
 
 n = 0
 for line in sys.stdin:
-    dbt.insert(T, int(line))
+    T.insert(int(line))
     n = n+1
 
 print()
-print(dbt.orderedTraversal(T))
+res = T.orderedTraversal()
+
+for i in range(n):
+    print(res[i])
