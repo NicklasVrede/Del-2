@@ -87,6 +87,7 @@ class DictBinTree:
                 træ_gang(x.venstre, res)
                 res.append(x.k)
                 træ_gang(x.højre, res)
+
             return res
 
         return træ_gang(self.rod)
