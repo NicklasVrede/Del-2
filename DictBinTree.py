@@ -1,19 +1,20 @@
 from dataclasses import dataclass
 
 class BinNode:
-    def __init__(self, nøgle):
-        self.k = nøgle
+    def __init__(self, nøgle: int):
+        self.k: int = nøgle
         self.venstre = None
         self.højre = None
 
 class DictBinTree:
     def __init__(self):
         self.rod = None
-        
+    
+    """
     #Recursive udgave
-    def search(self, k):
+    def search(self, k: int) -> bool:
         #Søg efter nøglen k.
-        def søg(x, k):
+        def søg(x, k: int):
             if x == None: 
                 return False #False istedet for None
             if x.k == k:
@@ -34,10 +35,10 @@ class DictBinTree:
                 return True
             
         return søg(x, k)
-
-
+    """
+    
     #Iterativ udgave
-    def search(self, k):
+    def search(self, k: int) -> bool:
         #Peg på en node  og brug x som i pseudokoden
         x = self.rod
 
@@ -60,7 +61,7 @@ class DictBinTree:
             return True
         
 
-    def insert(self, k):
+    def insert(self, k: int) -> None:
         x = self.rod
         y = None
         while x != None:
@@ -80,8 +81,7 @@ class DictBinTree:
         else:
             y.højre = BinNode(k)
 
-
-    def orderedTraversal(self):
+    def orderedTraversal(self) -> list[int]:
         def træ_gang(x, res=[]):
             if x != None:
                 træ_gang(x.venstre, res)

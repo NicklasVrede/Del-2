@@ -25,6 +25,27 @@ class TestDictBinTree(TestCase):
         self.assertEqual(self.T.orderedTraversal(), [3, 5, 7])
         self.assertEqual(self.T.orderedTraversal(), [3, 5, 7])
 
+    def test_empty_tree(self):
+        T = dbt.DictBinTree()
+        self.assertFalse(T.search(1))
+        self.assertEqual(T.orderedTraversal(), [])
+
+    def test_insert_duplicates(self):
+        self.T.insert(5)
+        self.assertEqual(self.T.orderedTraversal(), [3, 5, 5, 7])
+
+    def test_large_input(self):
+        T = dbt.DictBinTree()
+        for i in range(600):
+            T.insert(i)
+        self.assertEqual(T.orderedTraversal(), list(range(600)))
+
+    def test_unbalanced_tree(self):
+        T = dbt.DictBinTree()
+        for i in range(10, 0, -1):
+            T.insert(i)
+        self.assertEqual(T.orderedTraversal(), list(range(1, 11)))
+
 if __name__ == '__main__':
     from unittest import main
     main()
